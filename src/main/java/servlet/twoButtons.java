@@ -3,12 +3,14 @@
 
         @author Jeff Offutt
 ********************************************************************* */
-// modified: David Gonzalez (uses @WebServlet, and js/ resource folder)
 
 // Import Java Libraries
 import java.io.*;
 import java.util.*;
 
+//Import Servlet Libraries
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 // twoButtons class
 // CONSTRUCTOR: no constructor specified (default)
@@ -25,28 +27,20 @@ import java.util.*;
 // private void PrintTail (PrintWriter out) --> Prints the HTML bottom
 //***********************************************************************
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-@WebServlet(
-        name = "twoButtons",
-        urlPatterns = {"/twoButtons"}
-    )
 public class twoButtons extends HttpServlet
 {
 
 // Location of servlet.
-// static String Domain  = "cs.gmu.edu:8443";
-// static String Path    = "/offutt/servlet/";
+static String Domain  = "cs.gmu.edu:8443";
+static String Path    = "/offutt/servlet/";
 static String Servlet = "twoButtons";
 
 // Button labels
 static String OperationAdd = "Add";
 static String OperationSub = "Subtract";
+static String ConcatenateAB = "Merge string A before string B";
+static String ConcatenateBA = "Merge string B before string A";
+
 
 // Other strings.
 static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
@@ -60,26 +54,26 @@ static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
-   Float rslt   = new Float(0.0);
-   Float lhsVal = new Float(0.0);
-   Float rhsVal = new Float(0.0);
+   String rslt   = "";
+   String lhsVal = "";
+   String rhsVal = "";
    String operation = request.getParameter("Operation");
    String lhsStr = request.getParameter("LHS");
    String rhsStr = request.getParameter("RHS");
    if ((lhsStr != null) && (lhsStr.length() > 0))
-      lhsVal = new Float(lhsStr);
+      lhsVal = lhsStr;
    if ((rhsStr != null) && (rhsStr.length() > 0))
-      rhsVal = new Float(rhsStr);
+      rhsVal = rhsStr;
 
-   if (operation.equals(OperationAdd))
+   if (operation.equals(ConcatenateAB))
    {
-      rslt = new Float(lhsVal.floatValue() + rhsVal.floatValue());
+      rslt = lhsVal+rhsVal;
    }
-   else if (operation.equals(OperationSub))
+   else if (operation.equals(ConcatenateBA))
    {
-      rslt = new Float(lhsVal.floatValue() - rhsVal.floatValue());
+      rslt = rhsVal+lhsVal;
    }
-
+   
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
    PrintHead(out);
@@ -111,8 +105,7 @@ private void PrintHead (PrintWriter out)
 
    out.println("<head>");
    out.println("<title>Two buttons example</title>");
-   out.println("<script src=\"js/index.js\"/></script>"); // here to show how to access resources placed at src/main/webapp/
-   out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
+   out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
    out.println("</head>");
    out.println("");
 } // End PrintHead
@@ -129,15 +122,15 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("multiple submit buttons.");
    out.println("</p>");
    out.print  ("<form method=\"post\"");
-   out.println(" action=\""+Servlet+"\">"); // relative path used so it works in local and deploy runs
+   out.println(" action=\"https://" + Domain + Path + Servlet + "\">");
    out.println("");
    out.println(" <table>");
    out.println("  <tr>");
-   out.println("   <td>First value:");
+   out.println("   <td>First text:");
    out.println("   <td><input type=\"text\" name=\"LHS\" value=\"" + lhs + "\" size=5>");
    out.println("  </tr>");
    out.println("  <tr>");
-   out.println("   <td>Second value:");
+   out.println("   <td>Second text:");
    out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rhs + "\" size=5>");
    out.println("  </tr>");
    out.println("  <tr>");
@@ -147,8 +140,8 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println(" </table>");
    out.println(" <br>");
    out.println(" <br>");
-   out.println(" <input type=\"submit\" value=\"" + OperationAdd + "\" name=\"Operation\">");
-   out.println(" <input type=\"submit\" value=\"" + OperationSub + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + ConcatenateAB + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + ConcatenateBA + "\" name=\"Operation\">");
    out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("</form>");
    out.println("");
