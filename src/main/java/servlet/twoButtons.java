@@ -27,7 +27,7 @@ import javax.servlet.http.*;
 // private void PrintTail (PrintWriter out) --> Prints the HTML bottom
 //***********************************************************************
 
-@WebServlet(urlPatterns= {"/twoButtons"})
+@WebServlet(name = "twoButtons", urlPatterns= {"/twoButtons"})
 public class twoButtons extends HttpServlet
 {
 
@@ -106,6 +106,7 @@ private void PrintHead (PrintWriter out)
 
    out.println("<head>");
    out.println("<title>Two buttons example</title>");
+    out.println("<script src=\"js/index.js\"/></script>");
    out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
    out.println("</head>");
    out.println("");
@@ -123,7 +124,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("multiple submit buttons.");
    out.println("</p>");
    out.print  ("<form method=\"post\"");
-   out.println(" action=\"https://" + Domain + Path + Servlet + "\">");
+   out.println(" action=\"" Servlet + "\">");
    out.println("");
    out.println(" <table>");
    out.println("  <tr>");
