@@ -124,7 +124,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("multiple submit buttons.");
    out.println("</p>");
    out.print  ("<form method=\"post\"");
-   out.println(" action=\"" Servlet + "\">");
+   out.println(" action=\"" +Servlet + "\">");
    out.println("");
    out.println(" <table>");
    out.println("  <tr>");
