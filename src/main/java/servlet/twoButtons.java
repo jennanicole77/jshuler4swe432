@@ -84,7 +84,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
    PrintHead(out);
-   PrintBody(out, lhsStr, rhsStr, rslt.toString());
+   PrintBody(out, lhsVal, rhsVal, rslt.toString());
    PrintTail(out);
 }  // End doPost
 
@@ -135,15 +135,15 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println(" <table>");
    out.println("  <tr>");
    out.println("   <td>First text:");
-   out.println("   <td><input type=\"text\" name=\"LHS\" value=\"" + lhs + "\" size=5>");
+   out.println("   <td><input type=\"text\" name=\"LHS\" value=\"" + lhs + "\" size=30>");
    out.println("  </tr>");
    out.println("  <tr>");
    out.println("   <td>Second text:");
-   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rhs + "\" size=5>");
+   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rhs + "\" size=30>");
    out.println("  </tr>");
    out.println("  <tr>");
    out.println("   <td>Result:");
-   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rslt + "\" size=6>");
+   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rslt + "\" size=60>");
    out.println("  </tr>");
    out.println(" </table>");
    out.println(" <br>");
