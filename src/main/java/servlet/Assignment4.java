@@ -50,7 +50,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 } // End doGet
 
 //Print HTML page
-private void Print(PrinterWriter out) {
+private void Print(PrintWriter out) {
     out.println("<html>");
     out.println("<body onload=\"setFocus()\">");
     out.printlln("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 4</h1>");
