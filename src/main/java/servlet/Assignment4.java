@@ -62,40 +62,40 @@ private void Print(PrintWriter out) {
     out.println("<form method=\"post\" action=\"https://cs.gmu.edu:8443/offutt/servlet/formHandler\" name=\"form\" id=\"formId\">");
     out.println("<div style=\"font-size:20px;\" id=\"conatiner\">");
     out.println("<label for=\"characteristics\">Enter a number of block characteristics to be created below (Please enter a valid number above 0):</label>");
-    out.println("<input type=\"number\" id=\"characteristics\" name=\"characteristics\" min=1 required onInput=\"enterNumbers()\">" +
-        "<br><br>" + 
-        "<div id=\"amountOfInputs\"></div>" +
-	"<center>" +
-	"<input type=\"submit\"  style=\"color:#37AEE2; font-size: 16px; padding: 1rem 1.75rem; justify-content: center;\">" +
-	"</center>" +
-	"</form>" +
-	"</div>" +
-	"<script>"+
-	"let numOfChar = 0;" +
-	"function setFocus()" +
-	"{"+
-	"document.form.characteristics.focus();"+
-	"}"+
-	"function enterNumbers(arguements) {"+
-	"numOfChar = document.getElementById(\"characteristics\").value;"+
-	"var html = \"\";"+
-	"for(var i = 1; i<=numOfChar; i++) {"+
-	"html +="+
-    	"\"<label for=\'characteristics' + i + '\'> Block #' + i + ' (Please enter a valid number above 0):</label>\" +"+
-	"\"<input type=\'number\' id=\'characteristics' + i + '\' name=\'characteristics' + i + '\' min=01 required><br><br>\";" +
-	"}"+
-	"document.getElementById(\"amountOfInputs\").innerHTML = html;"+
-	"}"+
-	"</script>"+
-        "<script>"+
-	"var container = document.getElementById(\"container\");"+
-	"function changeFontSizeSlider() {"+
-	"var slider = document.getElementById(\"slider\");"+
-	"container.style.fontSize = slider.value;"+
-	"}"+
-	"</script>"+
-	"</body>"+
-        "</html>");
+    out.println("<input type=\"number\" id=\"characteristics\" name=\"characteristics\" min=1 required onInput=\"enterNumbers()\">");
+    out.println("<br><br>");
+    out.println("<div id=\"amountOfInputs\"></div>");
+    out.println("<center>");
+    out.println("<input type=\"submit\"  style=\"color:#37AEE2; font-size: 16px; padding: 1rem 1.75rem; justify-content: center;\">");
+    out.println("</center>");
+    out.println("</form>");
+    out.println("</div>");
+    out.println("<script>");
+    out.println("let numOfChar = 0;");
+    out.println("function setFocus()");
+    out.println("{");
+    out.println("document.form.characteristics.focus();");
+    out.println("}");
+    out.println("function enterNumbers(arguements) {");
+    out.println("numOfChar = document.getElementById(\"characteristics\").value;");
+    out.println("var html = \"\";");
+    out.println("for(var i = 1; i<=numOfChar; i++) {");
+    out.println("html +=");
+    out.println("\"<label for=\'characteristics' + i + '\'> Block #' + i + ' (Please enter a valid number above 0):</label>\" +");
+    out.println("\"<input type=\'number\' id=\'characteristics' + i + '\' name=\'characteristics' + i + '\' min=01 required><br><br>\";");
+    out.println("}");
+    out.println("document.getElementById(\"amountOfInputs\").innerHTML = html;");
+    out.println("}");
+    out.println("</script>");
+    out.println("<script>");
+    out.println("var container = document.getElementById(\"container\");");
+    out.println("function changeFontSizeSlider() {");
+    out.println("var slider = document.getElementById(\"slider\");");
+    out.println("container.style.fontSize = slider.value;");
+    out.println("}");
+    out.println("</script>");
+    out.println("</body>");
+    out.println("</html>");
 }
 }  // End assignment4
 
