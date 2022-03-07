@@ -34,7 +34,7 @@ import javax.servlet.http.HttpServletResponse;
 //***********************************************************************
 
 @WebServlet(name = "assignment4", urlPatterns= {"/assignment4"})
-public class twoButtons extends HttpServlet
+public class assignment4 extends HttpServlet
 {
 
 // Location of servlet.
