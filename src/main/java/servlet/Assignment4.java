@@ -53,7 +53,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 private void Print(PrintWriter out) {
     out.println("<html>");
     out.println("<body onload=\"setFocus()\">");
-    out.printlln("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 4</h1>");
+    out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 4</h1>");
     out.println("<h2 style=\"text-align:center; color:black;\">Creators: Jenna Shuler and Frank Costantino</h2>");
     out.println("<div style = \"text-align:center\">");
     out.println("<h3 style=\"text-align:center; color:black;\">Use the slider below to change the font size of the information below!</h3>");
