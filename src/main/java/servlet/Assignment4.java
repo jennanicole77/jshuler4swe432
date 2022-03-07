@@ -81,7 +81,7 @@ private void Print(PrintWriter out) {
     out.println("var html = \"\";");
     out.println("for(var i = 1; i<=numOfChar; i++) {");
     out.println("html +=");
-    out.println("\"<label for=\'characteristics' + i + '\'> Block #' + i + ' (Please enter a valid number above 0):</label>\" +");
+    out.println("\"<label for=\'characteristics' + i + '\'> Block #\' + i + \' (Please enter a valid number above 0):</label>\" +");
     out.println("\"<input type=\'number\' id=\'characteristics' + i + '\' name=\'characteristics' + i + '\' min=01 required><br><br>\";");
     out.println("}");
     out.println("document.getElementById(\"amountOfInputs\").innerHTML = html;");
