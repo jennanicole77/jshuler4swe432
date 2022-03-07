@@ -34,7 +34,7 @@ import javax.servlet.http.HttpServletResponse;
 //***********************************************************************
 
 @WebServlet(name = "assignment4", urlPatterns= {"/assignment4"})
-public class assignment4 extends HttpServlet
+public class Assignment4 extends HttpServlet
 {
 
 // Location of servlet.
@@ -112,7 +112,7 @@ private void PrintHead (PrintWriter out)
 
    out.println("<head>");
    out.println("<title>Two buttons example</title>");
-    out.println("<script src=\"js/index.js\"/></script>");
+   out.println("<script src=\"js/index.js\"/></script>");
    out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
    out.println("</head>");
    out.println("");
