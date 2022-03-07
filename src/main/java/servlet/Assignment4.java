@@ -113,7 +113,7 @@ private void PrintHead (PrintWriter out)
    out.println("<head>");
    out.println("<title>Two buttons example</title>");
    out.println("<script src=\"js/index.js\"/></script>");
-   out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
+//   out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
    out.println("</head>");
    out.println("");
 } // End PrintHead
