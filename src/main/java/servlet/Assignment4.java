@@ -34,7 +34,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 {
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
-   int N = parseInt(request.getParameter("characteristics"));
+   int N = Integer.parseInt(request.getParameter("characteristics"));
    out.println("<html><h1> " + N + "</h1></html>");
 }  // End doPost
 
