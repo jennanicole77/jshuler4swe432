@@ -34,7 +34,8 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 {
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
-   out.println("<html><h1> HI </h1></html>");
+   int N = request.getParameter("characteristics");
+   out.println("<html><h1> +" N "+ </h1></html>");
 }  // End doPost
 
 /** *****************************************************
