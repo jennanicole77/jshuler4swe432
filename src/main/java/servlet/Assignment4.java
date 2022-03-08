@@ -24,7 +24,7 @@ public class Assignment4 extends HttpServlet
 {
 
 // Location of servlet.
-static String Servlet = "assignmetn4";
+static String Servlet = "assignment4";
 
 /** *****************************************************
  *  Overrides HttpServlet's doPost().
@@ -35,7 +35,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
    int N = request.getParameter("characteristics");
-   out.println("<html><h1> +" N "+ </h1></html>");
+   out.println("<html><h1> " + N + "</h1></html>");
 }  // End doPost
 
 /** *****************************************************
