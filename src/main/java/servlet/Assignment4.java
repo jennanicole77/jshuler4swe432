@@ -32,10 +32,21 @@ static String Servlet = "assignment4";
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
-   response.setContentType("text/html");
-   PrintWriter out = response.getWriter();
-   int N = Integer.parseInt(request.getParameter("characteristics"));
-   out.println("<html><h1> " + N + "</h1></html>");
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+    int N = Integer.parseInt(request.getParameter("characteristics"));
+    String html = "";
+    out.println("<html>");
+    out.println("<body onload=\"setFocus()\">");
+    out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 4</h1>");
+    out.println("<h2 style=\"text-align:center; color:black;\">Creators: Jenna Shuler and Frank Costantino</h2>");
+    out.println("<div style=\"font-size:20px;\" id=\"conatiner\">");
+    out.println("<label>Number of characteristics inputted are " + N +".</label><br></br>");
+    for(int i =1; i<=N; i++) 
+        html += "<label> Characteristic " + i + "'s block = " + request.getParameter("characteristics" + i) + ".";
+    out.println(html);
+    out.println("</div>");
+    out.println("</body></html>");
 }  // End doPost
 
 /** *****************************************************
