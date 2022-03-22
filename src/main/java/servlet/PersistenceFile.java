@@ -53,7 +53,6 @@ public class PersistenceFile extends HttpServlet{
        firstName = "";
      }
      
-    String error = "";
      if(lastName == null){
        error= "<li>Last name is required</li>";
        lastName = "";
