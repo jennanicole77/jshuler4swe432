@@ -15,7 +15,7 @@
   <strong>Current Time is</strong>: <%=new Date() %>
   <p>Try a: </p>
   <div style="display: flex; flex-direction: column;">
-    <button onclick="window.location.assign(servletURL+'/assignment4');"> Two Buttons servlet </button>
+    <button onclick="window.location.assign(servletURL+'/assignment4');"> Assignment 4 servlet </button>
     <button onclick="window.location.assign(servletURL+'/twoButtons');"> Two Buttons servlet </button>
     <button onclick="window.location.assign(servletURL+'/echo');">Echo POST requests servlet </button>
     <button onclick="window.location.assign(servletURL+'/file');">File persistence servlet </button>
