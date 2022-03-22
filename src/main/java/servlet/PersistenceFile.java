@@ -20,7 +20,7 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet(name = "PersistenceFile", urlPatterns = {"/file"})
 public class PersistenceFile extends HttpServlet{
-  static enum Data {AGE, NAME};
+  static enum Data {AGE, FIRSTNAME, LASTNAME};
   static String RESOURCE_FILE = "entries.txt";
   static final String VALUE_SEPARATOR = ";";
 
@@ -43,13 +43,20 @@ public class PersistenceFile extends HttpServlet{
   public void doPost (HttpServletRequest request, HttpServletResponse response)
      throws ServletException, IOException
   {
-     String name = request.getParameter(Data.NAME.name());
+     String firstName = request.getParameter(Data.FIRSTNAME.name());
+     String lastName = request.getParameter(Data.LASTNAME.name());
      String age = request.getParameter(Data.AGE.name());
 
      String error = "";
-     if(name == null){
-       error= "<li>Name is required</li>";
-       name = "";
+     if(firstName == null){
+       error= "<li>First name is required</li>";
+       firstName = "";
+     }
+     
+    String error = "";
+     if(lastName == null){
+       error= "<li>Last name is required</li>";
+       lastName = "";
      }
 
      if(age == null){
@@ -79,7 +86,7 @@ public class PersistenceFile extends HttpServlet{
      if (error.length() == 0){
        PrintWriter entriesPrintWriter =
           new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-       entriesPrintWriter.println(name+VALUE_SEPARATOR+age);
+       entriesPrintWriter.println(firstName+VALUE_SEPARATOR+lastName+VALUE_SEPARATOR+age);
        entriesPrintWriter.close();
 
        printHead(out);
@@ -87,7 +94,7 @@ public class PersistenceFile extends HttpServlet{
        printTail(out);
      }else{
        printHead(out);
-       printBody(out, name, age, error);
+       printBody(out, firstName, lastName, age, error);
        printTail(out);
      }
   }
@@ -102,7 +109,7 @@ public class PersistenceFile extends HttpServlet{
      response.setContentType("text/html");
      PrintWriter out = response.getWriter();
      printHead(out);
-     printBody(out, "", "", "");
+     printBody(out, "", "", "", "");
      printTail(out);
   }
 
@@ -117,7 +124,7 @@ public class PersistenceFile extends HttpServlet{
      // Put the focus in the name field
      out.println ("<script>");
      out.println ("  function setFocus(){");
-     out.println ("    document.persist2file.NAME.focus();");
+     out.println ("    document.persist2file.FIRSTNAME.focus();");
      out.println ("  }");
      out.println ("</script>");
      out.println("</head>");
@@ -128,7 +135,7 @@ public class PersistenceFile extends HttpServlet{
    *  Prints the <BODY> of the HTML page
   ********************************************************* */
   private void printBody (
-    PrintWriter out, String name, String age, String error){
+    PrintWriter out, String firstName, String lastName, String age, String error){
      out.println("<body onLoad=\"setFocus()\">");
      out.println("<p>");
      out.println(
@@ -149,9 +156,14 @@ public class PersistenceFile extends HttpServlet{
      out.println("");
      out.println(" <table>");
      out.println("  <tr>");
-     out.println("   <td>Name:</td>");
-     out.println("   <td><input type=\"text\" name=\""+Data.NAME.name()
-      +"\" value=\""+name+"\" size=30 required></td>");
+     out.println("   <td>First Name:</td>");
+     out.println("   <td><input type=\"text\" name=\""+Data.FIRSTNAME.name()
+      +"\" value=\""+firstName+"\" size=30 required></td>");
+     out.println("  </tr>");
+     out.println("  <tr>");
+     out.println("   <td>Last Name:</td>");
+     out.println("   <td><input type=\"text\" name=\""+Data.LASTNAME.name()
+      +"\" value=\""+lastName+"\" size=30 required></td>");
      out.println("  </tr>");
      out.println("  <tr>");
      out.println("   <td>Age:</td>");
@@ -184,7 +196,8 @@ public class PersistenceFile extends HttpServlet{
 
     try {
         out.println("  <tr>");
-        out.println("   <th>Name</th>");
+        out.println("   <th>First Name</th>");
+        out.println("   <th>Last Name</th>");
         out.println("   <th>Age</th>");
         out.println("  </tr>");
         File file = new File(resourcePath);
