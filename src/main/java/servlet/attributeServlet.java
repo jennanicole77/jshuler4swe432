@@ -31,8 +31,8 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
    if (remove != null && remove.equals("on"))
    {
-      session.removeAttribute(name);
-      session.removeAttribute(age);
+      session.removeAllAttributes();
+      //session.removeAttribute(age);
    }
    else
    {
