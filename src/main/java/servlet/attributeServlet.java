@@ -24,6 +24,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    HttpSession session = request.getSession();
 
    String name   = request.getParameter("attrib_name");
+   String nickName   = request.getParameter("attrib_nickName");
    String value  = request.getParameter("attrib_value");
    String remove = request.getParameter("attrib_remove");
 
@@ -33,9 +34,9 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    }
    else
    {
-      if ((name != null && name.length() > 0) && (value != null && value.length() > 0))
+      if ((name != null && name.length() > 0) && (value != null && value.length() > 0) && (nickName != null && nickName.length() >0))
       {
-         session.setAttribute(name, value);
+         session.setAttribute(name, nickName, value);
       }
 
    }
@@ -54,7 +55,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println("<body>");
    out.println("<h1><center>Session attributes</center></h1>");
 
-   out.println("Enter name and value of an attribute");
+   out.println("Enter name, nickname, and value of an attribute");
 
    // String url = response.encodeURL ("offutt/servlet/attributeServlet");
    String url = response.encodeURL("attributeServlet");
@@ -62,11 +63,14 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println(" Name: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name\">");
 
+   out.println(" Nickname: ");
+   out.println(" <input type=\"text\" size=\"10\" name=\"attrib_nickName\">");
+
    out.println(" Value: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value\">");
-
+   
    out.println(" <br><input type=\"checkbox\" name=\"attrib_remove\">Remove");
-   out.println(" <input type=\"submit\" name=\"update\" value=\"Update\">");
+   out.println(" <input type=\"submit\" name=\"update\" nickName=\"update\" value=\"Update\">");
    out.println("</form>");
    out.println("<hr>");
 
@@ -75,10 +79,13 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    while (e.hasMoreElements())
    {
       String att_name  = (String) e.nextElement();
+      String att_nickName = (String) e.nextElement();
       String att_value = (String) session.getAttribute(att_name);
 
       out.print  ("<br><b>Name:</b> ");
       out.println(att_name);
+      out.print  ("<br><b>Nickname:</b> ");
+      out.println(att_nickName);
       out.print  ("<br><b>Value:</b> ");
       out.println(att_value);
    } //end while
