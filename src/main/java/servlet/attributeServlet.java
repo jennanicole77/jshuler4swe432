@@ -27,15 +27,11 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    String value  = request.getParameter("name_value");
    String age   = request.getParameter("attrib_age");
    String value2  = request.getParameter("age_value");
-   String removeName = request.getParameter("attrib_remove_name");
-   String removeAge = request.getParameter("attrib_remove_age");
+   String remove = request.getParameter("attrib_remove");
 
-   if (removeName != null && removeName.equals("on"))
+   if (remove != null && remove.equals("on"))
    {
       session.removeAttribute(name);
-   }
-   if (removeAge != null && removeAge.equals("on"))
-   {
       session.removeAttribute(age);
    }
    else
@@ -66,15 +62,15 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    // String url = response.encodeURL ("offutt/servlet/attributeServlet");
    String url = response.encodeURL("attributeServlet");
    out.println("<form action=\"" + url + "\" method=\"GET\">");
-   out.println("Enter name and value of an attribute");
+   out.println("Enter name and value of an attribute<br>");
 
    out.println(" Name: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name\">");
 
    out.println(" Value: ");
-   out.println(" <input type=\"text\" size=\"10\" name=\"name_value\">");
+   out.println(" <input type=\"text\" size=\"10\" name=\"name_value\"><br>");
    
-   out.println("Enter age and value of an attribute");
+   out.println("Enter age and value of an attribute<br>");
 
    out.println(" Age: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_age\">");
@@ -82,8 +78,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println(" Value: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"age_value\">");
    
-   out.println(" <br><input type=\"checkbox\" name=\"attrib_remove_name\">Remove a name");
-   out.println(" <br><input type=\"checkbox\" name=\"attrib_remove_age\">Remove an age");
+   out.println(" <br><input type=\"checkbox\" name=\"attrib_remove\">Remove");
    out.println(" <input type=\"submit\" name=\"update\" value=\"Update\" age=\"update\" value2=\"Update\">");
    out.println("</form>");
    out.println("<hr>");
