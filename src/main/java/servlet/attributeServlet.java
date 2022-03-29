@@ -25,7 +25,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
    String name   = request.getParameter("attrib_name");
    String nickName   = request.getParameter("attrib_nickName");
-   String value  = request.getParameter("attrib_value");
+   Object value  = request.getParameter("attrib_value");
    String remove = request.getParameter("attrib_remove");
 
    if (remove != null && remove.equals("on"))
