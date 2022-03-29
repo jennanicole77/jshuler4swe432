@@ -26,23 +26,25 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    String name   = request.getParameter("attrib_name");
    String value  = request.getParameter("name_value");
    String age   = request.getParameter("attrib_age");
-   String value2  = request.getParameter("age_value");
    String remove = request.getParameter("attrib_remove");
 
    if (remove != null && remove.equals("on"))
    {
-      session.removeAttribute(name);
-      session.removeValue(value);
-      session.removeAttribute(age);
-      session.removeValue(value2);
+      Enumeration e = session.getAttributeNames();
+      while (e.hasMoreElements())
+      {
+        
+         String att_name  = (String) e.nextElement();
+         session.removeAttribute(att_name);
+      }
    }
    else
    {
       if ((name != null && name.length() > 0) && (value != null && value.length() > 0) 
-        && (age != null && age.length() >0) && (value2 != null && value2.length() > 0))
+        && (age != null && age.length() >0))
       {
          session.setAttribute(name, value);
-         session.setAttribute(age, value2);
+         session.setAttribute(name, age);
       }
 
    }
@@ -64,24 +66,19 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    // String url = response.encodeURL ("offutt/servlet/attributeServlet");
    String url = response.encodeURL("attributeServlet");
    out.println("<form action=\"" + url + "\" method=\"GET\">");
-   out.println("Enter name and value of an attribute<br>");
+   out.println("Enter name, age, and value of an attribute<br>");
 
    out.println(" Name: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name\">");
 
-   out.println(" Value: ");
-   out.println(" <input type=\"text\" size=\"10\" name=\"name_value\"><br>");
-   
-   out.println("Enter age and value of an attribute<br>");
-
    out.println(" Age: ");
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_age\">");
-
+   
    out.println(" Value: ");
-   out.println(" <input type=\"text\" size=\"10\" name=\"age_value\">");
+   out.println(" <input type=\"text\" size=\"10\" name=\"name_value\">");
    
    out.println(" <br><input type=\"checkbox\" name=\"attrib_remove\">Remove");
-   out.println(" <input type=\"submit\" name=\"update\" value=\"Update\" age=\"update\" value2=\"Update\">");
+   out.println(" <input type=\"submit\" name=\"update\" value=\"Update\" age=\"Update\">");
    out.println("</form>");
    out.println("<hr>");
 
@@ -89,21 +86,20 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    Enumeration e = session.getAttributeNames();
    while (e.hasMoreElements())
    {
-      String att_age  = (String) e.nextElement();
-      String att_value = (String) session.getAttribute(att_name);
-      
       String att_name  = (String) e.nextElement();
-      String att_value2 = (String) session.getAttribute(att_age);
+      String att_age = (String) session.getAttribute(att_name);
+      att_name  = (String) e.nextElement();
+      String att_value = (String) session.getAttribute(att_name);
 
       out.print  ("<br><b>Name:</b> ");
       out.println(att_name);
       out.print  ("<br><b>Value:</b> ");
       out.println(att_value);
 
+      out.print  ("<br><b>Name:</b> ");
+      out.println(att_name);
       out.print  ("<br><b>Age:</b> ");
       out.println(att_age);
-      out.print  ("<br><b>Value:</b> ");
-      out.println(att_value2);
    } //end while
 
    out.println("</body>");
