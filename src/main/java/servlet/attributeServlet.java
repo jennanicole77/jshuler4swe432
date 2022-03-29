@@ -1,12 +1,18 @@
 // From "Professional Java Server Programming", Patzer et al.,
 
-// Import Servlet Libraries
-import javax.servlet.*;
-import javax.servlet.http.*;
-
 // Import Java Libraries
 import java.io.*;
 import java.util.*;
+
+//Import Servlet Libraries
+import javax.servlet.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "attributeServlet", urlPatterns={"/attributeServlet"})
 public class attributeServlet extends HttpServlet
