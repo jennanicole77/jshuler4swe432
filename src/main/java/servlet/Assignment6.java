@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 //***********************************************************************
 
 @WebServlet(name = "assignment6", urlPatterns= {"/assignment6"})
-public class Assignment4 extends HttpServlet
+public class Assignment6 extends HttpServlet
 {
 
 // Location of servlet.
