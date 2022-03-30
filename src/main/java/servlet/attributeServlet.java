@@ -43,8 +43,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       if ((name != null && name.length() > 0) && (value != null && value.length() > 0) 
         && (age != null && age.length() >0))
       {
-         session.setAttribute(name, value);
-         session.setAttribute(name, age);
+         session.setAttribute(name, (Object)[value, age]);
       }
 
    }
@@ -87,9 +86,8 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    while (e.hasMoreElements())
    {
       String att_name  = (String) e.nextElement();
-      String att_age = (String) session.getAttribute(att_name);
-      att_name  = (String) e.nextElement();
-      String att_value = (String) session.getAttribute(att_name);
+      String att_age = (String) session.getAttribute(att_name)[1];
+      String att_value = (String) session.getAttribute(att_name)[0];
 
       out.print  ("<br><b>Name:</b> ");
       out.println(att_name);
