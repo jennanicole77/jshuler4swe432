@@ -67,9 +67,9 @@ private void Print(PrintWriter out) {
     out.println("<body onload=\"setFocus()\">");
     out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 6</h1>");
     out.println("<h2 style=\"text-align:center; color:black;\">Creators: Jenna Shuler and Frank Costantino</h2>");
-    out.println("<a style=\"text-align:center;\" href=\"https://github.com/jennanicole77/jshuler4swe432/blob/main/src/main/java/servlet/Assignment6.java\">Assignment 6 Github Link</a>");
+    out.println("<h3 style=\"text-align:center;\" href=\"https://github.com/jennanicole77/jshuler4swe432/blob/main/src/main/java/servlet/Assignment6.java\">Assignment 6 Github Link</h3>");
     out.println("<div style = \"text-align:center\">");
-    out.println("<h3 style=\"text-align:center; color:black;\">Use the slider below to change the font size of the information below!</h3>");
+    out.println("<h3 style=\"text-align:center; color:black;\">Use the slider below to change the font size of the information below.</h3>");
     out.println("<input type=\"range\" min=\"15\" max=\"40\" id=\"slider\" onchange=\"changeFontSizeSlider()\" value=\"20\"/>");
     out.println("</div>");
     out.println("<form method=\"post\" action=\"https://jshuler4swe432.herokuapp.com/assignment4\" name=\"form\" id=\"formId\">");
