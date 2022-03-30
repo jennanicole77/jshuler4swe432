@@ -19,12 +19,12 @@ import javax.servlet.http.HttpServletResponse;
 // public void doGet ()  --> prints a blank HTML page
 //***********************************************************************
 
-@WebServlet(name = "assignment4", urlPatterns= {"/assignment4"})
+@WebServlet(name = "assignment6", urlPatterns= {"/assignment6"})
 public class Assignment4 extends HttpServlet
 {
 
 // Location of servlet.
-static String Servlet = "assignment4";
+static String Servlet = "assignment6";
 
 /** *****************************************************
  *  Overrides HttpServlet's doPost().
@@ -38,7 +38,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     String html = "";
     out.println("<html>");
     out.println("<body onload=\"setFocus()\">");
-    out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 4</h1>");
+    out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 6</h1>");
     out.println("<h2 style=\"text-align:center; color:black;\">Creators: Jenna Shuler and Frank Costantino</h2>");
     out.println("<label style=\"font-size:20px;\">Number of characteristics:" + N +".</label><br>");
     out.println("<div style=\"font-size:20px;\" id=\"conatiner\">");
@@ -65,8 +65,9 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 private void Print(PrintWriter out) {
     out.println("<html>");
     out.println("<body onload=\"setFocus()\">");
-    out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 4</h1>");
+    out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 6</h1>");
     out.println("<h2 style=\"text-align:center; color:black;\">Creators: Jenna Shuler and Frank Costantino</h2>");
+    out.println("<a href=\"https://github.com/jennanicole77/jshuler4swe432/blob/main/src/main/java/servlet/Assignment6.java\">Assignment 6 Github Link</a>");
     out.println("<div style = \"text-align:center\">");
     out.println("<h3 style=\"text-align:center; color:black;\">Use the slider below to change the font size of the information below!</h3>");
     out.println("<input type=\"range\" min=\"15\" max=\"40\" id=\"slider\" onchange=\"changeFontSizeSlider()\" value=\"20\"/>");
@@ -109,5 +110,5 @@ private void Print(PrintWriter out) {
     out.println("</body>");
     out.println("</html>");
 }
-}  // End assignment4
+}  // End assignment6
 
