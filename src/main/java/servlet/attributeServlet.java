@@ -124,7 +124,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
          out.print  ("<br><b>Age:</b> ");
          out.println(att_age);
       } //end while
-      out.print("<br>)
+      out.print("<br>");
 
       String lifeCycleURL = "/offutt/servlet/sessionLifeCycle";
       out.print  ("<br><br><a href=\"" + lifeCycleURL + "?action=invalidate\">");
