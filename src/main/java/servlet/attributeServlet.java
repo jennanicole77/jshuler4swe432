@@ -126,7 +126,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       } //end while
       out.print("<br>");
 
-      String lifeCycleURL = "https://cs.gmu.edu:8443/offutt/servlet/sessionLifeCycle";
+      String lifeCycleURL = "/session";
       out.print  ("<br><br><a href=\"" + lifeCycleURL + "?action=invalidate\">");
       out.println("Invalidate the session</a>");
 
