@@ -43,7 +43,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     out.println("<label style=\"font-size:20px;\">Number of characteristics:" + N +".</label><br>");
     out.println("<div style=\"font-size:20px;\" id=\"conatiner\">");
     for(int i =1; i<=N; i++) {
-        int numBlocks - Integer.parseInt(request.getParameter("characteristics" + 1)); 
+        int numBlocks - Integer.parseInt(request.getParameter("characteristics" + i)); 
         html += "<label> Characteristic " + i + ": ";
         for(int j =1; j<=numBlocks; j++) {
             html+="Block" + j;
