@@ -95,9 +95,6 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       out.println(att_name);
       out.print  ("<br><b>Value:</b> ");
       out.println(att_value);
-
-      out.print  ("<br><b>Name:</b> ");
-      out.println(att_name);
       out.print  ("<br><b>Age:</b> ");
       out.println(att_age);
    } //end while
