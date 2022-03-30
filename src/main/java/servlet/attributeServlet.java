@@ -30,13 +30,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
    if (remove != null && remove.equals("on"))
    {
-      Enumeration e = session.getAttributeNames();
-      while (e.hasMoreElements())
-      {
-        
-         String att_name  = (String) e.nextElement();
-         session.removeAttribute(att_name);
-      }
+      session.removeAttribute(name);
    }
    else
    {
