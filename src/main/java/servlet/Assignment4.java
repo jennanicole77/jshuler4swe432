@@ -40,7 +40,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     out.println("<body onload=\"setFocus()\">");
     out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 4</h1>");
     out.println("<h2 style=\"text-align:center; color:black;\">Creators: Jenna Shuler and Frank Costantino</h2>");
-    out.println("<label style=\"font-size:22.5px;\">Number of characteristics inputted are " + N +".</label><br></br>");
+    out.println("<label style=\"font-size:20px;\">Number of characteristics:" + N +".</label><br>");
     out.println("<div style=\"font-size:20px;\" id=\"conatiner\">");
     for(int i =1; i<=N; i++) 
         html += "<label> Characteristic " + i + "'s block = " + request.getParameter("characteristics" + i) + ".</label><br></br>";
@@ -98,8 +98,6 @@ private void Print(PrintWriter out) {
     out.println("}");
     out.println("document.getElementById(\"amountOfInputs\").innerHTML = html;");
     out.println("}");
-    out.println("</script>");
-    out.println("<script>");
     out.println("var container = document.getElementById(\"container\");");
     out.println("function changeFontSizeSlider() {");
     out.println("var slider = document.getElementById(\"slider\");");
