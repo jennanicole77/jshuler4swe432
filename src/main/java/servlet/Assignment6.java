@@ -82,7 +82,7 @@ private void Print(PrintWriter out) {
     out.println("</div>");
     out.println("<form method=\"post\" action=\"https://jshuler4swe432.herokuapp.com/assignment4\" name=\"form\" id=\"formId\">");
     out.println("<div style=\"font-size:20px;\" id=\"container\">");
-    out.println("<label for=\"characteristics\">Enter a number of block characteristics to be created below (Please enter a valid number above 0):</label>");
+    out.println("<label for=\"characteristics\">Enter a number of characteristics to be created below (Please enter a valid number above 0):</label>");
     out.println("<input type=\"number\" id=\"characteristics\" name=\"characteristics\" min=1 required onInput=\"enterNumbers()\">");
     out.println("<br><br>");
     out.println("<div id=\"amountOfInputs\"></div>");
@@ -102,7 +102,7 @@ private void Print(PrintWriter out) {
     out.println("var html = \"\";");
     out.println("for(var i = 1; i<=numOfChar; i++) {");
     out.println("html +=");
-    out.println("\"<label for=\\\"characteristics\" + i + \"\\\"> Characteristic\" + i + \"'s number of blocks (Please enter a valid number above 0):</label>\" +");
+    out.println("\"<label for=\\\"characteristics\" + i + \"\\\"> Characteristic \" + i + \"'s number of blocks (Please enter a valid number above 0):</label>\" +");
     out.println("\"<input type=\\\"number\\\" id=\\\"characteristics\" + i + \"\\\" name=\\\"characteristics\" + i + \"\\\" min=01 required><br><br>\";");
     out.println("}");
     out.println("document.getElementById(\"amountOfInputs\").innerHTML = html;");
