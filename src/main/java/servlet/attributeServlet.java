@@ -127,7 +127,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       out.print("<br>");
 
       String lifeCycleURL = "/attributeServlet";
-      out.print  ("<br><br><a href=\"" + lifeCycleURL + "?action=invalide\">");
+      out.print  ("<br><br><a href=\"" + lifeCycleURL + "?action=invalidate\">");
       out.println("Invalidate the session</a>");
 
       out.println("</body>");
