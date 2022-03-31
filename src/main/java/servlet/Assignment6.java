@@ -62,7 +62,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     if(option.equals("EC")) {
         out.println("console.log(\"EC\")");
     }
-    else(option.equals("BC")) {
+    else if(option.equals("BC")) {
         out.println("console.log(\"BC\")");
     }
 
