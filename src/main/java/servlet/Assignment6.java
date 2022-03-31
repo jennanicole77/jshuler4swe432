@@ -110,7 +110,7 @@ private void Print(PrintWriter out) {
     out.println("for(var i = 1; i<=numOfChar; i++) {");
     out.println("html +=");
     out.println("\"<label for=\\\"characteristicName\" + i + \"\\\"> Characteristic name:</label>\"+ "); 
-    out.println("\"<input type=\\\"text\\\" pattern=\"[A-Za-z0-9]+i\" id=\\\"characteristicName\" + i + \"\\\" name=\\\"characteristicName\" + i + \"\\\" min=01 required>\" + ");
+    out.println("\"<input type=\\\"text\\\" pattern=\"[A-Za-z0-9]+\" id=\\\"characteristicName\" + i + \"\\\" name=\\\"characteristicName\" + i + \"\\\" min=01 required>\" + ");
     out.println("\"<label for=\\\"charactertistics\" + i + \"\\\">number of blocks (Please enter a valid number above 0):</label>\" +");
     out.println("\"<input type=\\\"number\\\" id=\\\"characteristics\" + i + \"\\\" name=\\\"characteristics\" + i + \"\\\" min=01 required><br><br>\";");
     out.println("}");
