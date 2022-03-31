@@ -94,7 +94,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
         for (int CNum=0; CNum<N; CNum++)
         {  // Find the maximum # blocks among the characteristics
             int numBlocks = Integer.parseInt(request.getParameter("characteristics" + (CNum+1))); 
-            numTests += numBlocks;
+            numTests += numBlocks-1;
         }
         out.println("<label style=\"font-weight: bold\">"+ numTests  +" base-choice abstract tests.</label><br>");
 
