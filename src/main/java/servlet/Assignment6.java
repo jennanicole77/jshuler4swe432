@@ -57,9 +57,16 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
         html += ".</label><br></br>";
     }
     out.println(html);
-    out.println("<label>" + request.getParameter("EC") + "</label>");
-    out.println("<label>" + request.getParameter("BC") + "</label>");
     out.println("</div>");
+    out.println("<script>");
+    out.println("document.getElementById(\"EC\") ? ec() : bc();");
+    out.println("function ec() {");
+    out.println("console.log(\"EC\");");
+    out.println("}");
+    out.println("function bc() {");
+    out.println("console.log(\"BC\");");
+    out.println("}");
+    out.println("</script>");
     out.println("</body></html>");
 }  // End doPost
 
