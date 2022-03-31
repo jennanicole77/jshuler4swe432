@@ -97,6 +97,7 @@ private void Print(PrintWriter out) {
     out.println("<input type=\"radio\" id=\"EC\" value=\"Each-Choice Testing Output\" checked>");
     out.println("<label for=\\\"BC\\\"> Base-Choice Testing Output</label>"); 
     out.println("<input type=\"radio\" id=\"BC\" value=\"Base-Choice Testing Output\">");
+    out.println("<br><br>");
     out.println("<input type=\"submit\"  style=\"color:#37AEE2; font-size: 16px; padding: 1rem 1.75rem; justify-content: center;\">");
     out.println("</div>");
     out.println("</center>");
@@ -113,11 +114,14 @@ private void Print(PrintWriter out) {
     out.println("var html = \"\";");
     out.println("for(var i = 1; i<=numOfChar; i++) {");
     out.println("html +=");
-    out.println("\"<label for=\\\"characteristicName\" + i + \"\\\"> Characteristic name:</label>\"+ "); 
+    out.println("\"<label for=\\\"characteristicName\" + i + \"\\\"> Characteristic name: </label>\"+ "); 
     out.println("\"<input type=\\\"text\\\" pattern=\\\"[A-Za-z0-9]+\\\" id=\\\"characteristicName\" + i + \"\\\" name=\\\"characteristicName\" + i + \"\\\" min=01 required>\" + ");
-    out.println("\"<label for=\\\"charactertistics\" + i + \"\\\">number of blocks (Please enter a valid number above 0):</label>\" +");
+    out.println("\"<label for=\\\"charactertistics\" + i + \"\\\">number of blocks: </label>\" +");
     out.println("\"<input type=\\\"number\\\" id=\\\"characteristics\" + i + \"\\\" name=\\\"characteristics\" + i + \"\\\" min=01 required><br><br>\";");
     out.println("}");
+    out.println("html+=\"<label style=\\\"font-size=18px\\\"> **Characteristic names should be letters or numbers only.**</label>\"+ "); 
+    out.println("\"<label style=\\\"font-size=18px\\\"> **Number of blocks should be a valid number above 0.**</label>\"+ "); 
+    out.println("\"<br><br>\";");
     out.println("document.getElementById(\"amountOfInputs\").innerHTML = html;");
     out.println("}");
     out.println("</script>");
