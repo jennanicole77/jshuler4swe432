@@ -70,11 +70,11 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
         out.println("<br><label style=\"font-weight: bold\">"+ maxCharacteristic  +" each-choice abstract tests.</label>");
         for (int testNum=1; testNum<=maxCharacteristic; testNum++)
         {
-            String html;
+            html = "";
             html += "<label>Abstract test " + testNum + ": [";
             for (int charNum=0; charNum<N; charNum++)
             {
-                String name = request.getParameter("characteristicName" + i);
+                String name = request.getParameter("characteristicName" + charNum);
                 int numBlocks = Integer.parseInt(request.getParameter("characteristics" + charNum)); 
                 html += name;
                 if (testNum<=numBlocks)
