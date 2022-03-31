@@ -57,8 +57,8 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
         html += ".</label><br></br>";
     }
     out.println(html);
-    out.println(request.getParameter("EC"));
-    out.println(request.getParameter("BC"));
+    out.println("<label>" + request.getParameter("EC") + "</label>");
+    out.println("<label>" + request.getParameter("BC") + "</label>");
     out.println("</div>");
     out.println("</body></html>");
 }  // End doPost
