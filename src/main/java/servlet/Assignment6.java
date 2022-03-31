@@ -56,7 +56,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
         }
         html += ".</label><br></br>";
     }
-    out.println(html);
+    out.println(html + "</div>");
     
     String option = request.getParameter("abstract");
     if(option.equals("EC")) {
@@ -68,6 +68,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
             if (numBlocks>maxCharacteristic)
                 maxCharacteristic= numBlocks;
         }
+        out.println("console.log(\"EC\")");
         out.println("<label style=\"font-weight: bold\">"+ maxCharacteristic  +" each-choice abstract tests.</label>");
         for (int testNum=1; testNum<=maxCharacteristic; testNum++)
         {
