@@ -57,6 +57,8 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
         html += ".</label><br></br>";
     }
     out.println(html);
+    out.println(request.getParameter("EC"));
+    out.println(request.getParameter("BC"));
     out.println("</div>");
     out.println("</body></html>");
 }  // End doPost
@@ -95,12 +97,12 @@ private void Print(PrintWriter out) {
     out.println("<label>Default is each-choice test</label><br>");
     out.println("<div>");
     out.println("<div>");
-    out.println("<input type=\"radio\" id=\"EC\" name=\"abstract\" value=\"Each-Choice Testing Output\" checked>");
     out.println("<label for=\\\"EC\\\"> Each-Choice Testing Output</label>"); 
+    out.println("<input type=\"radio\" id=\"EC\" name=\"abstract\" value=\"Each-Choice Testing Output\" checked>");
     out.println("</div>");
     out.println("<div>");
-    out.println("<input type=\"radio\" id=\"BC\" name=\"abstract\" value=\"Base-Choice Testing Output\">");
     out.println("<label for=\\\"BC\\\"> Base-Choice Testing Output</label>"); 
+    out.println("<input type=\"radio\" id=\"BC\" name=\"abstract\" value=\"Base-Choice Testing Output\">");
     out.println("</div>");
     out.println("</div>");
     out.println("<br>");
