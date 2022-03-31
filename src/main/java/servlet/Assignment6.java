@@ -94,12 +94,14 @@ private void Print(PrintWriter out) {
     out.println("<label>Please choose which abstract test you would like to see printed.</label>");
     out.println("<label>Default is each-choice test</label><br>");
     out.println("<div>");
-    out.println("<input type=\"radio\" id=\"EC\" value=\"Each-Choice Testing Output\" checked>");
+    out.println("<div>");
+    out.println("<input type=\"radio\" id=\"EC\" name=\"abstract\" value=\"Each-Choice Testing Output\" checked>");
     out.println("<label for=\\\"EC\\\"> Each-Choice Testing Output</label>"); 
     out.println("</div>");
     out.println("<div>");
-    out.println("<input type=\"radio\" id=\"BC\" value=\"Base-Choice Testing Output\">");
+    out.println("<input type=\"radio\" id=\"BC\" name=\"abstract\" value=\"Base-Choice Testing Output\">");
     out.println("<label for=\\\"BC\\\"> Base-Choice Testing Output</label>"); 
+    out.println("</div>");
     out.println("</div>");
     out.println("<br>");
     out.println("<input type=\"submit\"  style=\"color:#37AEE2; font-size: 16px; padding: 1rem 1.75rem; justify-content: center;\">");
