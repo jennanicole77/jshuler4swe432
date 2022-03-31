@@ -57,16 +57,15 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
         html += ".</label><br></br>";
     }
     out.println(html);
-    out.println("</div>");
-    out.println("<script>");
-    out.println("document.getElementById(\"EC\").checked ? ec() : bc();");
-    out.println("function ec() {");
-    out.println("console.log(\"EC\");");
-    out.println("}");
-    out.println("function bc() {");
-    out.println("console.log(\"BC\");");
-    out.println("}");
-    out.println("</script>");
+    
+    String option = request.getParameter("abstract");
+    if(option.equals("EC")) {
+        out.println("console.log(\"EC\")");
+    }
+    else(option.equals("BC")) {
+        out.println("console.log(\"BC\")");
+    }
+
     out.println("</body></html>");
 }  // End doPost
 
@@ -105,11 +104,11 @@ private void Print(PrintWriter out) {
     out.println("<div>");
     out.println("<div>");
     out.println("<label for=\\\"EC\\\"> Each-Choice Testing Output</label>"); 
-    out.println("<input type=\"radio\" id=\"EC\" name=\"abstract\" value=\"Each-Choice Testing Output\" checked>");
+    out.println("<input type=\"radio\" id=\"EC\" name=\"abstract\" value=\"EC\" checked>");
     out.println("</div>");
     out.println("<div>");
     out.println("<label for=\\\"BC\\\"> Base-Choice Testing Output</label>"); 
-    out.println("<input type=\"radio\" id=\"BC\" name=\"abstract\" value=\"Base-Choice Testing Output\">");
+    out.println("<input type=\"radio\" id=\"BC\" name=\"abstract\" value=\"BC\">");
     out.println("</div>");
     out.println("</div>");
     out.println("<br>");
