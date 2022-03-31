@@ -46,10 +46,11 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     out.println("<label style=\"font-size:20px;\">Number of characteristics: " + N +".</label><br>");
     out.println("<div style=\"font-size:20px;\" id=\"conatiner\">");
     for(int i =1; i<=N; i++) {
+        int name = request.getParameter("characteristicName" + i);
         int numBlocks = Integer.parseInt(request.getParameter("characteristics" + i)); 
         html += "<label> Characteristic " + i + ": ";
         for(int j =1; j<=numBlocks; j++) {
-            html+="Block" + j;
+            html+= name + j;
             if(j<numBlocks)
                 html+=", ";
         }
@@ -105,7 +106,9 @@ private void Print(PrintWriter out) {
     out.println("var html = \"\";");
     out.println("for(var i = 1; i<=numOfChar; i++) {");
     out.println("html +=");
-    out.println("\"<label for=\\\"characteristics\" + i + \"\\\"> Characteristic \" + i + \"'s number of blocks (Please enter a valid number above 0):</label>\" +");
+    out.println("\"<label for=\\\"characteristicName\" + i + \"\\\"> Characteristic name:</label>\"+ "); 
+    out.println("\"<input type=\\\"text\\\" id=\\\"characteristicName\" + i + \"\\\" name=\\\"characteristicName\" + i + \"\\\" min=01 required>\";");
+    out.println("\"<label for=\\\"charactertistics\" + i + \"\\\">number of blocks (Please enter a valid number above 0):</label>\" +");
     out.println("\"<input type=\\\"number\\\" id=\\\"characteristics\" + i + \"\\\" name=\\\"characteristics\" + i + \"\\\" min=01 required><br><br>\";");
     out.println("}");
     out.println("document.getElementById(\"amountOfInputs\").innerHTML = html;");
