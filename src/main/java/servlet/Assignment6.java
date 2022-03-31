@@ -43,12 +43,12 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     out.println("<div style = \"text-align:center\">");
     out.println("<a href=\"https://github.com/jennanicole77/jshuler4swe432/blob/main/src/main/java/servlet/Assignment6.java\">Assignment 6 Github Link</a>");
     out.println("</div>");
-    out.println("<label style=\"font-size:20px;\">Number of characteristics: " + N +".</label><br>");
+    out.println("<label style=\"font-size:20px;\">Number of characteristics: " + N +".</label><br><br>");
     out.println("<div style=\"font-size:20px;\" id=\"conatiner\">");
     for(int i =1; i<=N; i++) {
         String name = request.getParameter("characteristicName" + i);
         int numBlocks = Integer.parseInt(request.getParameter("characteristics" + i)); 
-        html += "<label> Characteristic " + i + ": ";
+        html += "<label> Characteristic " + name + ": ";
         for(int j =1; j<=numBlocks; j++) {
             html+= name + j;
             if(j<numBlocks)
