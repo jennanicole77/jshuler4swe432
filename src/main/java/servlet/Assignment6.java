@@ -56,7 +56,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
         }
         html += ".</label><br></br>";
     }
-    out.println(html + "</div>");
+    out.println(html);
     
     String option = request.getParameter("abstract");
     if(option.equals("EC")) {
@@ -68,7 +68,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
             if (numBlocks>maxCharacteristic)
                 maxCharacteristic= numBlocks;
         }
-        out.println("<label style=\"font-weight: bold\">"+ maxCharacteristic  +" each-choice abstract tests.</label>");
+        out.println("<label style=\"font-weight: bold\">"+ maxCharacteristic  +" each-choice abstract tests.</label><br>");
         for (int testNum=1; testNum<=maxCharacteristic; testNum++)
         {
             html = "";
@@ -85,15 +85,45 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
                 if (charNum<N-1)
                     html += ", ";
             }
-            html += "]</label>";
+            html += "]</label><br>";
             out.println(html);
         }
     }
     else if(option.equals("BC")) {
-        out.println("console.log(\"BC\")");
-    }
+        int numTests = 1; // start at 1 for the base test
+        for (int CNum=0; CNum<N; CNum++)
+        {  // Find the maximum # blocks among the characteristics
+            int numBlocks = Integer.parseInt(request.getParameter("characteristics" + (CNum+1))); 
+            numTests += numBlocks;
+        }
+        out.println("<label style=\"font-weight: bold\">"+ numTests  +" base-choice abstract tests.</label><br>");
 
-    out.println("</body></html>");
+        // Create base test
+        Vector<String> baseTest = new Vector<>();
+        for (int CNum=0; CNum<N; CNum++)
+        {
+            String name = request.getParameter("characteristicName" + (CNum+1));
+            baseTest.add(name+"1");
+        }
+        out.println("<label>Abstract test 1 (base): "+ baseTest +"</label><br>");
+
+        // non-base tests
+        Vector<String> nextTest = new Vector<>(baseTest);
+        int testNum = 2;
+        for (int CNum=0; CNum<N; CNum++)
+        { // for (int BNum=2; BNum<=3; BNum++)
+            int numBlocks = Integer.parseInt(request.getParameter("characteristics" + (CNum+1))); 
+            for (int BNum=2; BNum<=numBlocks; BNum++)
+            {
+                String name = request.getParameter("characteristicName" + (CNum+1));
+                nextTest.set(CNum, name+String.valueOf(BNum));
+                out.println("<label>Abstract test "+ testNum + " = " + nextTest + "</label><br>");
+                testNum++;
+                nextTest.set(CNum, baseTest.get(CNum));
+            }
+        }
+    }
+    out.println("</div></body></html>");
 }  // End doPost
 
 /** *****************************************************
