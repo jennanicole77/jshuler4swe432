@@ -60,15 +60,13 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     
     String option = request.getParameter("abstract");
     if(option.equals("EC")) {
-        out.println("console.log(\"EC\")");
         int maxCharacteristic=0;
         for (int charNum=0; charNum<N; charNum++)
         {  // Find the maximum # blocks among the characteristics
-            int numBlocks = Integer.parseInt(request.getParameter("characteristics" + charNum)); 
+            int numBlocks = Integer.parseInt(request.getParameter("characteristics" + charNum+1)); 
             if (numBlocks>maxCharacteristic)
                 maxCharacteristic= numBlocks;
         }
-        out.println("console.log(\"EC\")");
         out.println("<label style=\"font-weight: bold\">"+ maxCharacteristic  +" each-choice abstract tests.</label>");
         for (int testNum=1; testNum<=maxCharacteristic; testNum++)
         {
@@ -76,8 +74,8 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
             html += "<label>Abstract test " + testNum + ": [";
             for (int charNum=0; charNum<N; charNum++)
             {
-                String name = request.getParameter("characteristicName" + charNum);
-                int numBlocks = Integer.parseInt(request.getParameter("characteristics" + charNum)); 
+                String name = request.getParameter("characteristicName" + charNum+1);
+                int numBlocks = Integer.parseInt(request.getParameter("characteristics" + charNum+1)); 
                 html += name;
                 if (testNum<=numBlocks)
                     html += testNum;
