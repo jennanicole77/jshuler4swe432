@@ -63,10 +63,8 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
         int maxCharacteristic=0;
         for (int charNum=0; charNum<N; charNum++)
         {  // Find the maximum # blocks among the characteristics
-            out.println("in loop");
             int i = charNum+1;
             int numBlocks = Integer.parseInt(request.getParameter("characteristics" + i)); 
-        out.println(numBlocks);
             if (numBlocks>maxCharacteristic)
                 maxCharacteristic= numBlocks;
         }
@@ -77,8 +75,8 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
             html += "<label>Abstract test " + testNum + ": [";
             for (int charNum=0; charNum<N; charNum++)
             {
-                String name = request.getParameter("characteristicName" + charNum+1);
-                int numBlocks = Integer.parseInt(request.getParameter("characteristics" + charNum+1)); 
+                String name = request.getParameter("characteristicName" + (charNum+1));
+                int numBlocks = Integer.parseInt(request.getParameter("characteristics" + (charNum+1))); 
                 html += name;
                 if (testNum<=numBlocks)
                     html += testNum;
