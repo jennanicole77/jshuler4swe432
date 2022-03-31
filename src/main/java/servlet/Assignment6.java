@@ -60,7 +60,33 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     
     String option = request.getParameter("abstract");
     if(option.equals("EC")) {
-        out.println("console.log(\"EC\")");
+        int maxCharacteristic=0;
+        for (int charNum=0; charNum<N; charNum++)
+        {  // Find the maximum # blocks among the characteristics
+            int numBlocks = Integer.parseInt(request.getParameter("characteristics" + charNum)); 
+            if (numBlocks>maxCharacteristic)
+                maxCharacteristic= numBlocks;
+        }
+        out.println("<br><label style=\"font-weight: bold\">"+ maxCharacteristic  +" each-choice abstract tests.</label>");
+        for (int testNum=1; testNum<=maxCharacteristic; testNum++)
+        {
+            String html;
+            html += "<label>Abstract test " + testNum + ": [";
+            for (int charNum=0; charNum<N; charNum++)
+            {
+                String name = request.getParameter("characteristicName" + i);
+                int numBlocks = Integer.parseInt(request.getParameter("characteristics" + charNum)); 
+                html += name;
+                if (testNum<=numBlocks)
+                    html += testNum;
+                else // no more blocks, use wild card
+                    html += "*";
+                if (charNum<N-1)
+                    html += ", ";
+            }
+            html += "]</label>";
+            out.println(html);
+        }
     }
     else if(option.equals("BC")) {
         out.println("console.log(\"BC\")");
