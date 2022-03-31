@@ -37,7 +37,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     int N = Integer.parseInt(request.getParameter("characteristics"));
     String html = "";
     out.println("<html>");
-    out.println("<body onload=\"setFocus()\">");
+    out.println("<body>");
     out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 6</h1>");
     out.println("<h2 style=\"text-align:center; color:black;\">Creators: Jenna Shuler and Frank Costantino</h2>");
     out.println("<div style = \"text-align:center\">");
@@ -59,7 +59,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     out.println(html);
     out.println("</div>");
     out.println("<script>");
-    out.println("document.getElementById(\"EC\") ? ec() : bc();");
+    out.println("document.getElementById(\"EC\").checked ? ec() : bc();");
     out.println("function ec() {");
     out.println("console.log(\"EC\");");
     out.println("}");
