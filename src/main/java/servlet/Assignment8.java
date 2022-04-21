@@ -78,6 +78,9 @@ private void Print(PrintWriter out) {
     out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 8</h1>");
     out.println("<h2 style=\"text-align:center; color:black;\">Creators: Jenna Shuler and Frank Costantino</h2>");
     out.println("<div style = \"text-align:center\">");
+    out.println("<a href=\"https://github.com/jennanicole77/jshuler4swe432/blob/main/src/main/java/servlet/Assignment8.java\">Assignment 8 Github Link (Back end)</a>");
+    out.println("</div>");
+    out.println("<div style = \"text-align:center\">");
     out.println("<h3 style=\"text-align:center; color:black;\">Use the slider below to change the font size of the information below!</h3>");
     out.println("<input type=\"range\" min=\"15\" max=\"40\" id=\"slider\" onchange=\"changeFontSizeSlider()\" value=\"20\"/>");
     out.println("</div>");
