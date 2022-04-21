@@ -70,7 +70,7 @@ private void Print(PrintWriter out) {
     out.println("<h3 style=\"text-align:center; color:black;\">Use the slider below to change the font size of the information below!</h3>");
     out.println("<input type=\"range\" min=\"15\" max=\"40\" id=\"slider\" onchange=\"changeFontSizeSlider()\" value=\"20\"/>");
     out.println("</div>");
-    out.println("<form method=\"post\" action=\"https://jshuler4swe432.herokuapp.com/assignment4\" name=\"form\" id=\"formId\">");
+    out.println("<form method=\"post\" action=\"https://jshuler4swe432.herokuapp.com/assignment8\" name=\"form\" id=\"formId\">");
     out.println("<div style=\"font-size:20px;\" id=\"container\">");
     out.println("<label for=\"characteristics\">Enter a number of block characteristics to be created below (Please enter a valid number above 0):</label>");
     out.println("<input type=\"number\" id=\"characteristics\" name=\"characteristics\" min=1 required onInput=\"enterNumbers()\">");
