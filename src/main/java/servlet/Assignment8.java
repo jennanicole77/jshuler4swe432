@@ -32,7 +32,8 @@ static String Servlet = "assignment8";
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
-    response.setContentType("text/html");
+    response.setContentType("application/json");
+    response.setHeader("Access-Control-Allow-Origin", "*");
     PrintWriter out = response.getWriter();
     int N = Integer.parseInt(request.getParameter("characteristics"));
     String html = "";
@@ -66,7 +67,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
 {
-   response.setContentType("applicaton/json");
+   response.setContentType("text/html");
    response.setHeader("Access-Control-Allow-Origin", "*");
    PrintWriter out = response.getWriter();
    Print(out);
