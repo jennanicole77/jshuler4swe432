@@ -67,6 +67,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
 {
    response.setContentType("applicaton/json");
+   response.setHeader("Access-Control-Allow-Origin", "*");
    PrintWriter out = response.getWriter();
    Print(out);
 } // End doGet
