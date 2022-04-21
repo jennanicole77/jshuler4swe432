@@ -41,7 +41,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 8</h1>");
     out.println("<h2 style=\"text-align:center; color:black;\">Creators: Jenna Shuler and Frank Costantino</h2>");
     out.println("<a href=\"https://github.com/jennanicole77/jshuler4swe432/blob/main/src/main/java/servlet/Assignment8.java\">Assignment 8 Github Link (Back end)</a>");
-    out.println("</div>");
+    out.println("<br>");
     out.println("<label style=\"font-size:20px;\">Number of characteristics:" + N +".</label><br>");
     out.println("<div style=\"font-size:20px;\" id=\"conatiner\">");
     for(int i =1; i<=N; i++) {
