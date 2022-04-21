@@ -40,10 +40,20 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
     out.println("<body onload=\"setFocus()\">");
     out.println("<h1 style=\"text-align:center; color:black;\">SWE 432 Assignment 8</h1>");
     out.println("<h2 style=\"text-align:center; color:black;\">Creators: Jenna Shuler and Frank Costantino</h2>");
+    out.println("<a href=\"https://github.com/jennanicole77/jshuler4swe432/blob/main/src/main/java/servlet/Assignment8.java\">Assignment 8 Github Link (Back end)</a>");
+    out.println("</div>");
     out.println("<label style=\"font-size:20px;\">Number of characteristics:" + N +".</label><br>");
     out.println("<div style=\"font-size:20px;\" id=\"conatiner\">");
-    for(int i =1; i<=N; i++) 
-        html += "<label> Characteristic " + i + "'s block = " + request.getParameter("characteristics" + i) + ".</label><br></br>";
+    for(int i =1; i<=N; i++) {
+        int numBlocks = Integer.parseInt(request.getParameter("characteristics" + i)); 
+        html += "<label> Characteristic " + i + ": ";
+        for(int j =1; j<=numBlocks; j++) {
+            html+= "Block" + j;
+            if(j<numBlocks)
+                html+=", ";
+        }
+        html += ".</label><br></br>";
+    }
     out.println(html);
     out.println("</div>");
     out.println("</body></html>");
@@ -72,7 +82,7 @@ private void Print(PrintWriter out) {
     out.println("</div>");
     out.println("<form method=\"post\" action=\"https://jshuler4swe432.herokuapp.com/assignment8\" name=\"form\" id=\"formId\">");
     out.println("<div style=\"font-size:20px;\" id=\"container\">");
-    out.println("<label for=\"characteristics\">Enter a number of block characteristics to be created below (Please enter a valid number above 0):</label>");
+    out.println("<label for=\"characteristics\">Enter a number of characteristics to be created below (Please enter a valid number above 0):</label>");
     out.println("<input type=\"number\" id=\"characteristics\" name=\"characteristics\" min=1 required onInput=\"enterNumbers()\">");
     out.println("<br><br>");
     out.println("<div id=\"amountOfInputs\"></div>");
@@ -92,7 +102,7 @@ private void Print(PrintWriter out) {
     out.println("var html = \"\";");
     out.println("for(var i = 1; i<=numOfChar; i++) {");
     out.println("html +=");
-    out.println("\"<label for=\\\"characteristics\" + i + \"\\\"> Block #\" + i + \" (Please enter a valid number above 0):</label>\" +");
+    out.println("\"<label for=\\\"characteristics\" + i + \"\\\"> Characteristic \" + i + \"'s number of blocks: (Please enter a valid number above 0):</label>\" +");
     out.println("\"<input type=\\\"number\\\" id=\\\"characteristics\" + i + \"\\\" name=\\\"characteristics\" + i + \"\\\" min=01 required><br><br>\";");
     out.println("}");
     out.println("document.getElementById(\"amountOfInputs\").innerHTML = html;");
