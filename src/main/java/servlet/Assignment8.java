@@ -66,10 +66,9 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
 {
-   response.setContentType("text/html");
+   response.setContentType("applicaton/json");
    PrintWriter out = response.getWriter();
    Print(out);
-    out.write("hi");
 } // End doGet
 
 //Print HTML page
